@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Auth } from "aws-amplify";
 import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
@@ -7,17 +7,26 @@ import { useFormFields } from "../libs/hooksLib";
 import { onError } from "../libs/errorLib";
 import "./Login.css";
 
+import FacebookButton from '../components/FacebookButton';
+
 export default function Login() {
   const { userHasAuthenticated } = useAppContext();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [fields, handleFieldChange] = useFormFields({
     email: "",
     password: ""
   });
 
+  useEffect(() => {
+    console.log("Page Loaded");
+    setIsLoading(false);
+  }, []);
+
   function validateForm() {
     return fields.email.length > 0 && fields.password.length > 0;
   }
+
+
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -33,9 +42,15 @@ export default function Login() {
     }
   }
 
+  async function handleFbLogin() {
+     userHasAuthenticated(true);
+  };
+
   return (
     <div className="Login">
       <form onSubmit={handleSubmit}>
+        <FacebookButton onLogin={handleFbLogin} />
+        <hr/>
         <FormGroup controlId="email" bsSize="large">
           <ControlLabel>Email</ControlLabel>
           <FormControl

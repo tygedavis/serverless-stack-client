@@ -13,6 +13,9 @@ const dev = {
     USER_POOL_ID: "us-east-1_B7dbk6a1S",
     APP_CLIENT_ID: "7822hg7t4jqrhlg9rtigq2n4dq",
     IDENTITY_POOL_ID: "us-east-1:6a8b8095-adb7-4bf2-bf07-3b24b276ef14"
+  },
+  social: {
+    FB: "215476723113271"
   }
 };
 

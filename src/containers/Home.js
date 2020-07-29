@@ -7,7 +7,6 @@ import { onError } from "../libs/errorLib";
 import { API } from "aws-amplify";
 import "./Home.css";
 
-
 export default function Home() {
   const [notes, setNotes] = useState([]);
   const { isAuthenticated } = useAppContext();
@@ -35,6 +34,8 @@ export default function Home() {
   function loadNotes() {
     return API.get("notes", "/notes");
   }
+
+
 
   function renderNotesList(notes) {
     return [{}].concat(notes).map((note, i) =>
