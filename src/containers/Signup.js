@@ -11,6 +11,7 @@ import { useAppContext } from "../libs/contextLib";
 import { useFormFields } from "../libs/hooksLib";
 import { onError } from "../libs/errorLib";
 import { Auth } from "aws-amplify";
+import FacebookButton from '../components/FacebookButton';
 import "./Signup.css";
 
 export default function Signup() {
@@ -98,9 +99,15 @@ export default function Signup() {
     );
   }
 
+  async function handleFbLogin() {
+    userHasAuthenticated(true);
+  };
+
   function renderForm() {
     return (
       <form onSubmit={handleSubmit}>
+        <FacebookButton onLogin={handleFbLogin} />
+        <hr/>
         <FormGroup controlId="email" bsSize="large">
           <ControlLabel>Email</ControlLabel>
           <FormControl
