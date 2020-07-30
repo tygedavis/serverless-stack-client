@@ -7,7 +7,6 @@ import { onError } from "../libs/errorLib";
 import { API } from "aws-amplify";
 import "./Home.css";
 
-
 export default function Home() {
   const [notes, setNotes] = useState([]);
   const { isAuthenticated } = useAppContext();
