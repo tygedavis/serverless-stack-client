@@ -18,7 +18,6 @@ export default function Login() {
   });
 
   useEffect(() => {
-    console.log("Page Loaded");
     setIsLoading(false);
   }, []);
 

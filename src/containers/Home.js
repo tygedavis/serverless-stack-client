@@ -5,11 +5,12 @@ import { LinkContainer } from "react-router-bootstrap";
 import { useAppContext } from "../libs/contextLib";
 import { onError } from "../libs/errorLib";
 import { API } from "aws-amplify";
+import FacebookButton from '../components/FacebookButton';
 import "./Home.css";
 
 export default function Home() {
   const [notes, setNotes] = useState([]);
-  const { isAuthenticated } = useAppContext();
+  const { isAuthenticated, userHasAuthenticated } = useAppContext();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -34,8 +35,6 @@ export default function Home() {
   function loadNotes() {
     return API.get("notes", "/notes");
   }
-
-
 
   function renderNotesList(notes) {
     return [{}].concat(notes).map((note, i) =>
