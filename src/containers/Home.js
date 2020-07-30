@@ -5,12 +5,11 @@ import { LinkContainer } from "react-router-bootstrap";
 import { useAppContext } from "../libs/contextLib";
 import { onError } from "../libs/errorLib";
 import { API } from "aws-amplify";
-import FacebookButton from '../components/FacebookButton';
 import "./Home.css";
 
 export default function Home() {
   const [notes, setNotes] = useState([]);
-  const { isAuthenticated, userHasAuthenticated } = useAppContext();
+  const { isAuthenticated } = useAppContext();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
