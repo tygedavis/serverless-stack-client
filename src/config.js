@@ -34,6 +34,9 @@ const prod = {
     USER_POOL_ID: "us-east-1_elEbGSQBM",
     APP_CLIENT_ID: "iqtn4k3kcrsel8h8dpl2jb5b9",
     IDENTITY_POOL_ID: "us-east-1:7a402541-bf13-4545-ba52-2e4b645bc1b9"
+  },
+  social: {
+    FB: "215476723113271"
   }
 };
 
